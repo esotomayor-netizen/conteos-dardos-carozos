@@ -6,6 +6,8 @@ import type { Parcela } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
+const COORDENADAS_REGEX = /^-?\d{1,3}(\.\d+)?,\s*-?\d{1,3}(\.\d+)?$/;
+
 export default async function ParcelasPage() {
   const sql = getSql();
   const parcelas = (await sql`select * from parcelas order by created_at desc`) as Parcela[];
@@ -23,7 +25,19 @@ export default async function ParcelasPage() {
                 {p.nombre}
               </Link>
               <p className="text-sm text-neutral-500">
-                {p.especie ?? "Sin especie"} · {p.ubicacion ?? "Sin ubicación"}
+                {p.especie ?? "Sin especie"} ·{" "}
+                {p.ubicacion && COORDENADAS_REGEX.test(p.ubicacion.trim()) ? (
+                  <a
+                    href={`https://maps.google.com/?q=${encodeURIComponent(p.ubicacion)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline"
+                  >
+                    📍 {p.ubicacion}
+                  </a>
+                ) : (
+                  p.ubicacion ?? "Sin ubicación"
+                )}
               </p>
             </div>
             <DeleteButton url={`/api/parcelas/${p.id}`} />
