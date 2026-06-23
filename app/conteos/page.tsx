@@ -1,5 +1,6 @@
 import { getSql } from "@/lib/db";
 import { ConteoForm } from "@/components/ConteoForm";
+import { ConteoFotoForm } from "@/components/ConteoFotoForm";
 import { DeleteButton } from "@/components/DeleteButton";
 
 export const dynamic = "force-dynamic";
@@ -54,6 +55,7 @@ export default async function ConteosPage({
   return (
     <div className="space-y-6">
       <h1 className="text-2xl font-semibold">Conteos</h1>
+      <ConteoFotoForm ramas={ramas} ramaIdPredeterminada={rama_id ? Number(rama_id) : undefined} />
       <ConteoForm ramas={ramas} ramaIdPredeterminada={rama_id ? Number(rama_id) : undefined} />
       <div className="rounded-lg border border-neutral-200 bg-white divide-y">
         {conteos.length === 0 && <p className="p-4 text-neutral-500">No hay conteos registrados.</p>}
