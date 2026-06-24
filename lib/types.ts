@@ -62,3 +62,59 @@ export type Conteo = {
   notas: string | null;
   created_at: string;
 };
+
+export const ESTADOS_CONTACTO = [
+  "sin_contactar",
+  "contactado",
+  "en_negociacion",
+  "proveedor_activo",
+  "descartado",
+] as const;
+export type EstadoContacto = (typeof ESTADOS_CONTACTO)[number];
+
+export const ESTADOS_CONTACTO_LABEL: Record<EstadoContacto, string> = {
+  sin_contactar: "Sin contactar",
+  contactado: "Contactado",
+  en_negociacion: "En negociación",
+  proveedor_activo: "Proveedor activo",
+  descartado: "Descartado",
+};
+
+export const predioProspeccionSchema = z.object({
+  nombre_propietario: z.string().min(1, "El nombre del propietario es obligatorio"),
+  rut: z.string().optional(),
+  region: z.string().min(1, "La región es obligatoria"),
+  comuna: z.string().optional(),
+  lat: z.coerce.number().min(-90).max(90).optional(),
+  lng: z.coerce.number().min(-180).max(180).optional(),
+  especie: z.string().min(1, "La especie es obligatoria"),
+  variedad: z.string().optional(),
+  hectareas_aprox: z.coerce.number().positive().optional(),
+  telefono: z.string().optional(),
+  email: z.string().email("Email inválido").optional().or(z.literal("")),
+  fuente: z.string().optional(),
+  notas: z.string().optional(),
+});
+
+export const predioProspeccionEstadoSchema = z.object({
+  estado_contacto: z.enum(ESTADOS_CONTACTO),
+});
+
+export type PredioProspeccion = {
+  id: number;
+  nombre_propietario: string;
+  rut: string | null;
+  region: string;
+  comuna: string | null;
+  lat: string | null;
+  lng: string | null;
+  especie: string;
+  variedad: string | null;
+  hectareas_aprox: string | null;
+  telefono: string | null;
+  email: string | null;
+  fuente: string | null;
+  estado_contacto: EstadoContacto;
+  notas: string | null;
+  created_at: string;
+};

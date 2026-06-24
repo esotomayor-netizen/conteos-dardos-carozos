@@ -10,6 +10,7 @@ Stack: Next.js (App Router) + Neon Postgres (`@neondatabase/serverless`) + Tailw
 - **arboles**: pertenecen a una parcela.
 - **ramas**: pertenecen a un árbol.
 - **conteos**: registros de cantidad por tipo de estructura (`dardo`, `carozo`, `brote`, `flor`, `vegetativo`) asociados a una rama, con fecha y notas.
+- **predios_prospeccion**: predios externos candidatos a nuevos proveedores (región, especie, hectáreas, contacto y estado de seguimiento), visibles en un mapa filtrable en `/predios`.
 
 ## Configuración
 

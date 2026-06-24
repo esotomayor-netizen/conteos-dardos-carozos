@@ -24,6 +24,7 @@ const NAV_LINKS = [
   { href: "/arboles", label: "Árboles" },
   { href: "/ramas", label: "Ramas" },
   { href: "/conteos", label: "Conteos" },
+  { href: "/predios", label: "Prospección" },
 ];
 
 export default function RootLayout({

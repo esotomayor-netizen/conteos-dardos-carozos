@@ -39,3 +39,28 @@ create index if not exists idx_arboles_parcela on arboles(parcela_id);
 create index if not exists idx_ramas_arbol on ramas(arbol_id);
 create index if not exists idx_conteos_rama on conteos(rama_id);
 create index if not exists idx_conteos_tipo on conteos(tipo_estructura);
+
+-- Prospección de productores: predios externos candidatos a nuevos proveedores
+create table if not exists predios_prospeccion (
+  id serial primary key,
+  nombre_propietario text not null,
+  rut text,
+  region text not null,
+  comuna text,
+  lat numeric,
+  lng numeric,
+  especie text not null,
+  variedad text,
+  hectareas_aprox numeric,
+  telefono text,
+  email text,
+  fuente text,
+  estado_contacto text not null default 'sin_contactar'
+    check (estado_contacto in ('sin_contactar', 'contactado', 'en_negociacion', 'proveedor_activo', 'descartado')),
+  notas text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_predios_region on predios_prospeccion(region);
+create index if not exists idx_predios_especie on predios_prospeccion(especie);
+create index if not exists idx_predios_estado on predios_prospeccion(estado_contacto);
