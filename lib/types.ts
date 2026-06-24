@@ -83,13 +83,19 @@ export const ESTADOS_CONTACTO_LABEL: Record<EstadoContacto, string> = {
 export const predioProspeccionSchema = z.object({
   nombre_propietario: z.string().min(1, "El nombre del propietario es obligatorio"),
   rut: z.string().optional(),
+  rol: z.string().optional(),
   region: z.string().min(1, "La región es obligatoria"),
   comuna: z.string().optional(),
+  comuna_postal: z.string().optional(),
+  direccion: z.string().optional(),
+  referencia: z.string().optional(),
+  direccion_postal: z.string().optional(),
   lat: z.coerce.number().min(-90).max(90).optional(),
   lng: z.coerce.number().min(-180).max(180).optional(),
   especie: z.string().min(1, "La especie es obligatoria"),
   variedad: z.string().optional(),
   hectareas_aprox: z.coerce.number().positive().optional(),
+  ha_total_predio: z.coerce.number().positive().optional(),
   telefono: z.string().optional(),
   email: z.string().email("Email inválido").optional().or(z.literal("")),
   fuente: z.string().optional(),
@@ -104,13 +110,19 @@ export type PredioProspeccion = {
   id: number;
   nombre_propietario: string;
   rut: string | null;
+  rol: string | null;
   region: string;
   comuna: string | null;
+  comuna_postal: string | null;
+  direccion: string | null;
+  referencia: string | null;
+  direccion_postal: string | null;
   lat: string | null;
   lng: string | null;
   especie: string;
   variedad: string | null;
   hectareas_aprox: string | null;
+  ha_total_predio: string | null;
   telefono: string | null;
   email: string | null;
   fuente: string | null;

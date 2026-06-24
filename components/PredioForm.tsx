@@ -21,13 +21,16 @@ export function PredioForm() {
       body: JSON.stringify({
         nombre_propietario: data.get("nombre_propietario"),
         rut: data.get("rut") || undefined,
+        rol: data.get("rol") || undefined,
         region: data.get("region"),
         comuna: data.get("comuna") || undefined,
+        direccion: data.get("direccion") || undefined,
         lat: data.get("lat") || undefined,
         lng: data.get("lng") || undefined,
         especie: data.get("especie"),
         variedad: data.get("variedad") || undefined,
         hectareas_aprox: data.get("hectareas_aprox") || undefined,
+        ha_total_predio: data.get("ha_total_predio") || undefined,
         telefono: data.get("telefono") || undefined,
         email: data.get("email") || undefined,
         fuente: data.get("fuente") || undefined,
@@ -49,13 +52,16 @@ export function PredioForm() {
       <div className="grid sm:grid-cols-3 gap-3">
         <input name="nombre_propietario" placeholder="Nombre propietario" required className="border rounded px-3 py-2 text-sm" />
         <input name="rut" placeholder="RUT (opcional)" className="border rounded px-3 py-2 text-sm" />
+        <input name="rol" placeholder="Rol de avalúo (opcional)" className="border rounded px-3 py-2 text-sm" />
         <input name="region" placeholder="Región" required className="border rounded px-3 py-2 text-sm" />
         <input name="comuna" placeholder="Comuna (opcional)" className="border rounded px-3 py-2 text-sm" />
+        <input name="direccion" placeholder="Predio / dirección (opcional)" className="border rounded px-3 py-2 text-sm" />
         <input name="lat" placeholder="Latitud (opcional)" className="border rounded px-3 py-2 text-sm" />
         <input name="lng" placeholder="Longitud (opcional)" className="border rounded px-3 py-2 text-sm" />
         <input name="especie" placeholder="Especie" required className="border rounded px-3 py-2 text-sm" />
         <input name="variedad" placeholder="Variedad (opcional)" className="border rounded px-3 py-2 text-sm" />
-        <input name="hectareas_aprox" placeholder="Hectáreas aprox." className="border rounded px-3 py-2 text-sm" />
+        <input name="hectareas_aprox" placeholder="Hectáreas de la especie" className="border rounded px-3 py-2 text-sm" />
+        <input name="ha_total_predio" placeholder="Hectáreas totales del predio" className="border rounded px-3 py-2 text-sm" />
         <input name="telefono" placeholder="Teléfono (opcional)" className="border rounded px-3 py-2 text-sm" />
         <input name="email" placeholder="Email (opcional)" type="email" className="border rounded px-3 py-2 text-sm" />
         <input name="fuente" placeholder="Fuente del dato" className="border rounded px-3 py-2 text-sm" />

@@ -44,3 +44,22 @@ Stack: Next.js (App Router) + Neon Postgres (`@neondatabase/serverless`) + Tailw
 3. Agrega **ramas** a cada árbol.
 4. Registra **conteos** de dardos, carozos u otras estructuras por rama.
 5. Consulta los totales agregados en la página de **Resumen**.
+
+## Importar un catastro frutícola (prospección de predios)
+
+La página `/predios` puede poblarse con datos reales de catastro (ej. catastro frutícola del SAG por región),
+con columnas: comuna, razón social, dirección, referencia, dirección postal, comuna postal, rol, celular,
+mail, especie, hectáreas de la especie y hectáreas totales del predio.
+
+```bash
+DATABASE_URL="..." node scripts/import-catastro.mjs catastro_VI_region.xlsx "Libertador General Bernardo O'Higgins"
+```
+
+Notas:
+
+- El catastro no trae coordenadas GPS por predio. El script ubica cada predio en el **centroide de su comuna**
+  (lista de comunas de la VI Región en `scripts/import-catastro.mjs`); si importas otra región, agrega sus
+  comunas al objeto `CENTROIDES_COMUNA`. En el mapa, los predios de una misma comuna se dispersan levemente
+  (jitter) y se agrupan en clusters para que sean legibles.
+- El script inserta todas las filas como nuevos registros; no actualiza ni deduplica registros existentes.
+  Si reimportas el mismo archivo, se duplicarán los predios.

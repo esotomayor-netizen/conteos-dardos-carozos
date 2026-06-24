@@ -45,13 +45,19 @@ create table if not exists predios_prospeccion (
   id serial primary key,
   nombre_propietario text not null,
   rut text,
+  rol text,
   region text not null,
   comuna text,
+  comuna_postal text,
+  direccion text,
+  referencia text,
+  direccion_postal text,
   lat numeric,
   lng numeric,
   especie text not null,
   variedad text,
   hectareas_aprox numeric,
+  ha_total_predio numeric,
   telefono text,
   email text,
   fuente text,
@@ -61,6 +67,15 @@ create table if not exists predios_prospeccion (
   created_at timestamptz not null default now()
 );
 
+-- Migración no destructiva para instalaciones existentes de predios_prospeccion
+alter table predios_prospeccion add column if not exists rol text;
+alter table predios_prospeccion add column if not exists comuna_postal text;
+alter table predios_prospeccion add column if not exists direccion text;
+alter table predios_prospeccion add column if not exists referencia text;
+alter table predios_prospeccion add column if not exists direccion_postal text;
+alter table predios_prospeccion add column if not exists ha_total_predio numeric;
+
 create index if not exists idx_predios_region on predios_prospeccion(region);
+create index if not exists idx_predios_comuna on predios_prospeccion(comuna);
 create index if not exists idx_predios_especie on predios_prospeccion(especie);
 create index if not exists idx_predios_estado on predios_prospeccion(estado_contacto);
