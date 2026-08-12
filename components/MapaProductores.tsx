@@ -80,7 +80,7 @@ export function MapaProductores({ productores }: { productores: ProductorMapa[] 
   return (
     <div className="space-y-2">
       <Script
-        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async`}
+        src={`https://maps.googleapis.com/maps/api/js?key=${apiKey}`}
         strategy="afterInteractive"
         onLoad={() => setScriptCargado(true)}
       />
