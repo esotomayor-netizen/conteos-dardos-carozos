@@ -46,7 +46,7 @@ export function ProductorForm({ agronomos }: { agronomos: Agronomo[] }) {
     return (
       <button
         onClick={() => setAbierto(true)}
-        className="bg-neutral-900 text-white rounded px-4 py-2 text-sm"
+        className="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-4 py-2 text-sm"
       >
         + Nuevo productor
       </button>
@@ -81,7 +81,7 @@ export function ProductorForm({ agronomos }: { agronomos: Agronomo[] }) {
         <input name="direccion" placeholder="Dirección" className="border rounded px-3 py-2 text-sm sm:col-span-3" />
       </div>
       {error && <p className="text-red-600 text-sm">{error}</p>}
-      <button type="submit" disabled={loading} className="bg-neutral-900 text-white rounded px-4 py-2 text-sm disabled:opacity-50">
+      <button type="submit" disabled={loading} className="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-4 py-2 text-sm disabled:opacity-50">
         {loading ? "Guardando..." : "Crear productor"}
       </button>
     </form>

@@ -79,7 +79,7 @@ export function SeguimientoForm({ productorId, agronomos }: { productorId: numbe
         />
       </div>
       {error && <p className="text-red-600 text-sm">{error}</p>}
-      <button type="submit" disabled={loading} className="bg-neutral-900 text-white rounded px-4 py-2 text-sm disabled:opacity-50">
+      <button type="submit" disabled={loading} className="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-4 py-2 text-sm disabled:opacity-50">
         {loading ? "Guardando..." : "Guardar contacto"}
       </button>
     </form>

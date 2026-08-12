@@ -153,6 +153,8 @@ export type Productor = {
   provincia: string | null;
   comuna: string | null;
   direccion: string | null;
+  latitud: number | null;
+  longitud: number | null;
   agronomo_id: number | null;
   created_at: string;
 };

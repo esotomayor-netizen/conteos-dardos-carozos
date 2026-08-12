@@ -54,8 +54,8 @@ export default async function ProductorDetallePage({ params }: { params: Promise
       </div>
 
       <section className="grid sm:grid-cols-2 gap-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-4 space-y-2">
-          <h2 className="font-medium mb-2">Contacto</h2>
+        <div className="rounded-lg border border-l-4 border-l-blue-500 border-neutral-200 bg-white p-4 space-y-2">
+          <h2 className="font-medium mb-2 text-blue-800">Contacto</h2>
           <p className="text-sm">
             <span className="text-neutral-500">Dueño:</span> {productor.dueno_nombre ?? "—"}
           </p>
@@ -99,10 +99,10 @@ export default async function ProductorDetallePage({ params }: { params: Promise
           </p>
         </div>
 
-        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+        <div className="rounded-lg border border-l-4 border-l-amber-500 border-neutral-200 bg-white p-4">
           <div className="flex items-center justify-between mb-2">
-            <h2 className="font-medium">Cultivos</h2>
-            <span className="text-sm text-neutral-500">{kilosTotal.toLocaleString("es-CL")} kg totales</span>
+            <h2 className="font-medium text-amber-800">Cultivos</h2>
+            <span className="text-sm font-medium text-amber-700">{kilosTotal.toLocaleString("es-CL")} kg totales</span>
           </div>
           {cultivos.length === 0 && <p className="text-neutral-500 text-sm">Sin cultivos registrados.</p>}
           <div className="divide-y">

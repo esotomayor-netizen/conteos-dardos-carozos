@@ -39,9 +39,9 @@ export function ProductoresFiltro({
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Buscar razón social, dueño, comuna..."
-          className="border rounded px-3 py-2 text-sm w-64"
+          className="border border-neutral-300 rounded px-3 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
         />
-        <button type="submit" className="border rounded px-3 py-2 text-sm hover:bg-neutral-50">
+        <button type="submit" className="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-3 py-2 text-sm">
           Buscar
         </button>
       </form>
@@ -49,7 +49,7 @@ export function ProductoresFiltro({
       <select
         value={valores.comuna ?? ""}
         onChange={(e) => actualizar({ comuna: e.target.value })}
-        className="border rounded px-3 py-2 text-sm"
+        className="border border-neutral-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
         <option value="">Todas las comunas</option>
         {comunas.map((c) => (
@@ -62,7 +62,7 @@ export function ProductoresFiltro({
       <select
         value={valores.especie ?? ""}
         onChange={(e) => actualizar({ especie: e.target.value })}
-        className="border rounded px-3 py-2 text-sm"
+        className="border border-neutral-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
         <option value="">Todas las especies</option>
         {especies.map((e) => (
@@ -75,7 +75,7 @@ export function ProductoresFiltro({
       <select
         value={valores.estado ?? ""}
         onChange={(e) => actualizar({ estado: e.target.value })}
-        className="border rounded px-3 py-2 text-sm"
+        className="border border-neutral-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
         <option value="">Todos los estados</option>
         {ESTADOS_SEGUIMIENTO.map((e) => (
@@ -88,7 +88,7 @@ export function ProductoresFiltro({
       <select
         value={valores.agronomo_id ?? ""}
         onChange={(e) => actualizar({ agronomo_id: e.target.value })}
-        className="border rounded px-3 py-2 text-sm"
+        className="border border-neutral-300 rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
       >
         <option value="">Todos los agrónomos</option>
         {agronomos.map((a) => (
@@ -104,7 +104,7 @@ export function ProductoresFiltro({
             setQ("");
             router.push("/productores");
           }}
-          className="text-sm text-neutral-500 hover:underline"
+          className="text-sm text-red-600 hover:underline"
         >
           Limpiar filtros
         </button>
