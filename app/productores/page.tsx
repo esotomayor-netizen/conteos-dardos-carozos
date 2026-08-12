@@ -109,9 +109,14 @@ export default async function ProductoresPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold">Productores</h1>
-        <p className="text-neutral-600">Base de captación para el equipo de agrónomos.</p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="text-2xl font-semibold">Productores</h1>
+          <p className="text-neutral-600">Base de captación para el equipo de agrónomos.</p>
+        </div>
+        <Link href="/productores/zonas" className="text-sm text-neutral-500 hover:underline shrink-0">
+          Ver por zonas →
+        </Link>
       </div>
 
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">

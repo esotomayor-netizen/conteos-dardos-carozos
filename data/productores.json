@@ -255,7 +255,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "CODEGUA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -330,7 +330,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "REQUINOA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -445,7 +445,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "MAIPO",
     "comuna": "PAINE",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -635,7 +635,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "CURICO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -710,7 +710,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "SANTIAGO",
     "comuna": "MARIA PINTO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -1010,7 +1010,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "COLTAUCO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -1390,7 +1390,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": "CAMINO LOS TRONCOS S/N, ROSARIO",
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -1600,7 +1600,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -1955,7 +1955,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "PERALILLO",
     "comuna": "PERALILLO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2075,7 +2075,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RANCAGUA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2093,9 +2093,9 @@
     "administrador_telefono": null,
     "administrador_email": null,
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
-    "provincia": "0",
-    "comuna": "0",
-    "direccion": "0",
+    "provincia": null,
+    "comuna": null,
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2460,7 +2460,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2510,7 +2510,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "NANCAGUA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2555,7 +2555,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "COLCHAGUA",
     "comuna": "SANTA CRUZ",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -2740,7 +2740,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "REQUINOA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -2763,9 +2763,9 @@
     "administrador_telefono": null,
     "administrador_email": null,
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
-    "provincia": "0",
-    "comuna": "0",
-    "direccion": "0",
+    "provincia": null,
+    "comuna": null,
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -2790,7 +2790,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "CODEGUA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -3005,7 +3005,7 @@
     "region": "METROPOLITANA",
     "provincia": "MELIPILLA",
     "comuna": "PUANGUE",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -3184,7 +3184,7 @@
     "administrador_email": null,
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "TALCA",
-    "comuna": "0",
+    "comuna": null,
     "direccion": "PARCELA SANTA TERESA SN, QUIÑIPEUMO, MAULE",
     "cultivos": [
       {
@@ -3203,7 +3203,7 @@
     "administrador_telefono": "+56987740956",
     "administrador_email": "alejandro.trincado@gmail.com",
     "region": "ÑUBLE",
-    "provincia": "0",
+    "provincia": null,
     "comuna": "SAN IGNACIO",
     "direccion": "CRUCERO COLTON S/N SAN IGNACIO",
     "cultivos": [
@@ -3239,8 +3239,8 @@
     "administrador_email": null,
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "COLCHAGUA",
-    "comuna": "0",
-    "direccion": "0",
+    "comuna": null,
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -3460,7 +3460,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "SANTIAGO",
     "comuna": "MELIPILLA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -3565,7 +3565,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -3870,7 +3870,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "MELIPILLA",
     "comuna": "MELIPILLA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -4225,7 +4225,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "MOSTAZAL",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -4460,7 +4460,7 @@
     "region": "DEL ÑUBLE",
     "provincia": "PUNILLA",
     "comuna": "SAN CARLOS",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -4485,7 +4485,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "GRANEROS",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -4585,7 +4585,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "MALLOA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -4610,7 +4610,7 @@
     "region": "DEL ÑUBLE",
     "provincia": "PUNILLA",
     "comuna": "SAN CARLOS",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -5255,7 +5255,7 @@
     "region": "DEL MAULE",
     "provincia": "MOLINA",
     "comuna": "MOLINA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -5315,7 +5315,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "MAIPO",
     "comuna": "PAINE",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -5440,7 +5440,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -5530,7 +5530,7 @@
     "region": "DEL MAULE",
     "provincia": "SAGRADA FAMILIA",
     "comuna": "SAGRADA FAMILIA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -5585,7 +5585,7 @@
     "region": null,
     "provincia": null,
     "comuna": null,
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -6075,7 +6075,7 @@
     "region": "DEL MAULE",
     "provincia": "TALCA",
     "comuna": "SAN RAFAEL",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -6395,7 +6395,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "MAIPO",
     "comuna": "CALERA DE TANGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -7340,7 +7340,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "COLCHAGUA",
     "comuna": "RENGO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CEREZA",
@@ -7415,7 +7415,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "MOSTAZAL",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "CIRUELA",
@@ -7560,7 +7560,7 @@
     "region": "REGION METROPOLITANA",
     "provincia": "MAIPO",
     "comuna": "ISLA DE MAIPO",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "D AGEN",
@@ -7595,7 +7595,7 @@
     "region": "DEL LIBERTADOR GRAL BERNARDO OHIGGINS",
     "provincia": "CACHAPOAL",
     "comuna": "REQUINOA",
-    "direccion": "0",
+    "direccion": null,
     "cultivos": [
       {
         "especie": "NECTARIN",
