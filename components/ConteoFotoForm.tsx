@@ -187,7 +187,7 @@ export function ConteoFotoForm({ ramas, ramaIdPredeterminada }: { ramas: RamaOpt
       <button
         type="submit"
         disabled={guardando || !resultado}
-        className="bg-neutral-900 text-white rounded px-4 py-2 text-sm disabled:opacity-50"
+        className="bg-emerald-700 hover:bg-emerald-800 text-white rounded px-4 py-2 text-sm disabled:opacity-50"
       >
         {guardando ? "Guardando..." : "Guardar conteo"}
       </button>

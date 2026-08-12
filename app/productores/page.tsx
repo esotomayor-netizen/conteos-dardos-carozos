@@ -114,28 +114,31 @@ export default async function ProductoresPage({
           <h1 className="text-2xl font-semibold">Productores</h1>
           <p className="text-neutral-600">Base de captación para el equipo de agrónomos.</p>
         </div>
-        <Link href="/productores/zonas" className="text-sm text-neutral-500 hover:underline shrink-0">
+        <Link
+          href="/productores/zonas"
+          className="text-sm text-emerald-700 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-full px-4 py-2 font-medium shrink-0 transition-colors"
+        >
           Ver por zonas →
         </Link>
       </div>
 
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+        <div className="rounded-lg border border-l-4 border-l-blue-500 border-neutral-200 bg-white p-4">
           <p className="text-sm uppercase text-neutral-500">Productores</p>
-          <p className="text-3xl font-bold">{productores.length}</p>
+          <p className="text-3xl font-bold text-blue-700">{productores.length}</p>
         </div>
-        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+        <div className="rounded-lg border border-l-4 border-l-amber-500 border-neutral-200 bg-white p-4">
           <p className="text-sm uppercase text-neutral-500">Kilos totales</p>
-          <p className="text-3xl font-bold">{totalKilos.toLocaleString("es-CL")}</p>
+          <p className="text-3xl font-bold text-amber-700">{totalKilos.toLocaleString("es-CL")}</p>
         </div>
-        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+        <div className="rounded-lg border border-l-4 border-l-emerald-500 border-neutral-200 bg-white p-4">
           <p className="text-sm uppercase text-neutral-500">Contactados</p>
-          <p className="text-3xl font-bold">{contactados}</p>
+          <p className="text-3xl font-bold text-emerald-700">{contactados}</p>
           <p className="text-xs text-neutral-400">{pendientes} sin contactar</p>
         </div>
-        <div className="rounded-lg border border-neutral-200 bg-white p-4">
+        <div className="rounded-lg border border-l-4 border-l-red-500 border-neutral-200 bg-white p-4">
           <p className="text-sm uppercase text-neutral-500">Seguimientos por vencer</p>
-          <p className="text-3xl font-bold text-amber-600">{porVencer}</p>
+          <p className="text-3xl font-bold text-red-600">{porVencer}</p>
         </div>
       </section>
 
@@ -143,13 +146,13 @@ export default async function ProductoresPage({
 
       <ProductoresFiltro comunas={comunas} especies={especies} agronomos={agronomos} valores={filtros} />
 
-      <div className="rounded-lg border border-neutral-200 bg-white divide-y">
+      <div className="rounded-lg border border-neutral-200 bg-white divide-y shadow-sm">
         {filas.length === 0 && <p className="p-4 text-neutral-500">No hay productores que coincidan con el filtro.</p>}
         {filas.map((f) => (
           <Link
             key={f.id}
             href={`/productores/${f.id}`}
-            className="p-4 flex items-center justify-between gap-4 hover:bg-neutral-50"
+            className="p-4 flex items-center justify-between gap-4 hover:bg-emerald-50/60 transition-colors"
           >
             <div className="min-w-0">
               <p className="font-medium truncate">{f.razon_social}</p>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getSql } from "@/lib/db";
+import { MapaProductores } from "@/components/MapaProductores";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,8 @@ type ProductorRow = {
   provincia: string | null;
   region: string | null;
   dueno_telefono: string | null;
+  latitud: number | null;
+  longitud: number | null;
 };
 
 type CultivoRow = { productor_id: number; especie: string };
@@ -26,7 +29,7 @@ export default async function ZonasPage() {
   const sql = getSql();
   const [productoresRaw, cultivosRaw] = await Promise.all([
     sql`
-      select id, razon_social, direccion, comuna, provincia, region, dueno_telefono
+      select id, razon_social, direccion, comuna, provincia, region, dueno_telefono, latitud, longitud
       from productores
       order by region, provincia, comuna, razon_social
     `,
@@ -61,6 +64,17 @@ export default async function ZonasPage() {
 
   const conDireccion = productores.filter((p) => p.direccion).length;
 
+  const productoresMapa = productores.map((p) => ({
+    id: p.id,
+    razon_social: p.razon_social,
+    direccion: p.direccion,
+    comuna: p.comuna,
+    dueno_telefono: p.dueno_telefono,
+    especies: especiesPorProductor.get(p.id) ?? [],
+    latitud: p.latitud,
+    longitud: p.longitud,
+  }));
+
   return (
     <div className="space-y-6">
       <div className="flex items-start justify-between gap-4">
@@ -68,7 +82,10 @@ export default async function ZonasPage() {
           <h1 className="text-2xl font-semibold">Zonas de productores</h1>
           <p className="text-neutral-600">Agrupados por comuna para planificar rutas de visita del equipo.</p>
         </div>
-        <Link href="/productores" className="text-sm text-neutral-500 hover:underline shrink-0">
+        <Link
+          href="/productores"
+          className="text-sm text-emerald-700 border border-emerald-200 bg-emerald-50 hover:bg-emerald-100 rounded-full px-4 py-2 font-medium shrink-0 transition-colors"
+        >
           ← Volver a productores
         </Link>
       </div>
@@ -77,12 +94,17 @@ export default async function ZonasPage() {
         {productores.length} productores en {comunaMap.size} comunas · {conDireccion} con dirección registrada
       </p>
 
+      <MapaProductores productores={productoresMapa} />
+
       <div className="space-y-6">
         {grupos.map((g) => (
-          <div key={`${g.region}__${g.provincia}__${g.comuna}`} className="rounded-lg border border-neutral-200 bg-white overflow-hidden">
-            <div className="bg-neutral-50 px-4 py-3 border-b border-neutral-200">
-              <p className="font-medium">{g.comuna}</p>
-              <p className="text-xs text-neutral-500">
+          <div
+            key={`${g.region}__${g.provincia}__${g.comuna}`}
+            className="rounded-lg border border-l-4 border-l-emerald-500 border-neutral-200 bg-white overflow-hidden shadow-sm"
+          >
+            <div className="bg-emerald-50 px-4 py-3 border-b border-emerald-100">
+              <p className="font-medium text-emerald-900">{g.comuna}</p>
+              <p className="text-xs text-emerald-700">
                 {g.provincia} · {g.region} · {g.productores.length} productores
               </p>
             </div>
@@ -93,7 +115,7 @@ export default async function ZonasPage() {
                   <Link
                     key={p.id}
                     href={`/productores/${p.id}`}
-                    className="p-3 flex items-center justify-between gap-4 hover:bg-neutral-50"
+                    className="p-3 flex items-center justify-between gap-4 hover:bg-emerald-50/60 transition-colors"
                   >
                     <div className="min-w-0">
                       <p className="text-sm font-medium truncate">{p.razon_social}</p>

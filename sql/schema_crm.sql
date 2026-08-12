@@ -21,6 +21,8 @@ create table if not exists productores (
   provincia text,
   comuna text,
   direccion text,
+  latitud numeric(9, 6),
+  longitud numeric(9, 6),
   agronomo_id integer references agronomos(id) on delete set null,
   created_at timestamptz not null default now()
 );
