@@ -48,7 +48,7 @@ export default async function ProductoresPage({
     `,
     sql`select productor_id, especie, kilos from productor_cultivos`,
     sql`
-      select distinct on (productor_id) productor_id, estado, fecha, proximo_seguimiento
+      select distinct on (productor_id) productor_id, estado, fecha::text as fecha, proximo_seguimiento::text as proximo_seguimiento
       from seguimientos
       order by productor_id, fecha desc, created_at desc
     `,

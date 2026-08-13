@@ -24,7 +24,7 @@ export default async function CalendarioPage() {
   const [filasRaw, agronomosRaw] = await Promise.all([
     sql`
       select s.id, s.productor_id, p.razon_social, p.comuna, s.agronomo_id, a.nombre as agronomo_nombre,
-             s.canal, s.estado, s.fecha, s.proximo_seguimiento, s.notas
+             s.canal, s.estado, s.fecha::text as fecha, s.proximo_seguimiento::text as proximo_seguimiento, s.notas
       from seguimientos s
       join productores p on p.id = s.productor_id
       left join agronomos a on a.id = s.agronomo_id
