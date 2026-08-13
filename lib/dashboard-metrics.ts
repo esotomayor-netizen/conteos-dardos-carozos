@@ -59,6 +59,18 @@ function pct(total: number, base: number): number {
   return base > 0 ? Math.round((total / base) * 1000) / 10 : 0;
 }
 
+// El último seguimiento (por fecha, y por id como desempate) de cada productor.
+// Se usa para "estado actual" y para no considerar vencido un próximo
+// seguimiento que ya quedó superado por un contacto más reciente.
+export function ultimoPorProductorMap<T extends { productor_id: number; fecha: string; id: number }>(
+  seguimientos: T[]
+): Map<number, T> {
+  const ordenados = [...seguimientos].sort((a, b) => a.fecha.localeCompare(b.fecha) || a.id - b.id);
+  const map = new Map<number, T>();
+  for (const s of ordenados) map.set(s.productor_id, s);
+  return map;
+}
+
 function contarPorCanal(seguimientos: SeguimientoRaw[]): ConteoPct[] {
   const total = seguimientos.length;
   const counts = new Map<CanalContacto, number>();
@@ -102,9 +114,7 @@ export function computeDashboardMetrics(
   }
   const totalKilos = cultivos.reduce((sum, c) => sum + (c.kilos ?? 0), 0);
 
-  const ordenados = [...seguimientos].sort((a, b) => a.fecha.localeCompare(b.fecha) || a.id - b.id);
-  const ultimoPorProductor = new Map<number, SeguimientoRaw>();
-  for (const s of ordenados) ultimoPorProductor.set(s.productor_id, s);
+  const ultimoPorProductor = ultimoPorProductorMap(seguimientos);
   const ultimos = [...ultimoPorProductor.values()];
 
   const productoresContactados = ultimoPorProductor.size;
