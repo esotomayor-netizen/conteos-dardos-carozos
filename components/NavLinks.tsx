@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { href: "/arboles", label: "Árboles" },
   { href: "/ramas", label: "Ramas" },
   { href: "/conteos", label: "Conteos" },
+  { href: "/dashboard", label: "Dashboard" },
   { href: "/productores", label: "Productores" },
   { href: "/agronomos", label: "Agrónomos" },
 ];
