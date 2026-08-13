@@ -26,7 +26,7 @@ export default async function DashboardPage() {
   const [productoresRaw, cultivosRaw, seguimientosRaw, agronomosRaw] = await Promise.all([
     sql`select id, razon_social, comuna, region, agronomo_id from productores`,
     sql`select productor_id, especie, kilos from productor_cultivos`,
-    sql`select id, productor_id, agronomo_id, canal, estado, fecha, proximo_seguimiento from seguimientos`,
+    sql`select id, productor_id, agronomo_id, canal, estado, fecha::text as fecha, proximo_seguimiento::text as proximo_seguimiento from seguimientos`,
     sql`select id, nombre from agronomos order by nombre asc`,
   ]);
 

@@ -20,7 +20,15 @@ export default async function ProductorDetallePage({ params }: { params: Promise
       where p.id = ${id}
     `,
     sql`select * from productor_cultivos where productor_id = ${id} order by especie, variedad`,
-    sql`select s.*, a.nombre as agronomo_nombre from seguimientos s left join agronomos a on a.id = s.agronomo_id where s.productor_id = ${id} order by s.fecha desc, s.created_at desc`,
+    sql`
+      select s.id, s.productor_id, s.agronomo_id, s.canal, s.estado, s.fecha::text as fecha,
+             s.proximo_seguimiento::text as proximo_seguimiento, s.notas, s.created_at,
+             a.nombre as agronomo_nombre
+      from seguimientos s
+      left join agronomos a on a.id = s.agronomo_id
+      where s.productor_id = ${id}
+      order by s.fecha desc, s.created_at desc
+    `,
     sql`select * from agronomos order by nombre asc`,
   ]);
   const productorRows = productorRowsRaw as (Productor & { agronomo_nombre: string | null })[];
