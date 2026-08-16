@@ -9,7 +9,7 @@ import {
 
 export type MotivoSugerencia = "vencido" | "sin_seguimiento_agendado" | "sin_contactar";
 
-const ORDEN_MOTIVO: Record<MotivoSugerencia, number> = {
+export const ORDEN_MOTIVO: Record<MotivoSugerencia, number> = {
   vencido: 0,
   sin_seguimiento_agendado: 1,
   sin_contactar: 2,
@@ -23,6 +23,7 @@ export type SugerenciaContacto = {
   email: string | null;
   kilos: number;
   especies: string[];
+  kilosPorEspecie: Record<string, number>;
   motivo: MotivoSugerencia;
   ultimaFecha: string | null;
   proximoSeguimientoVencido: string | null;
@@ -38,6 +39,8 @@ export type PropuestaPorAgronomo = {
 export type PropuestaSugerencias = {
   porAgronomo: PropuestaPorAgronomo[];
   sinAgronomosDisponibles: SugerenciaContacto[];
+  /** Especies presentes en la propuesta, ordenadas por kilos totales en juego (mayor a menor). */
+  especiesDisponibles: string[];
 };
 
 type ProductorConContacto = ProductorRaw & {
@@ -53,11 +56,16 @@ export function generarPropuestaSugerencias(
 ): PropuestaSugerencias {
   const especiesPorProductor = new Map<number, string[]>();
   const kilosPorProductor = new Map<number, number>();
+  const kilosPorEspeciePorProductor = new Map<number, Record<string, number>>();
   for (const c of cultivos) {
     const arr = especiesPorProductor.get(c.productor_id) ?? [];
     if (!arr.includes(c.especie)) arr.push(c.especie);
     especiesPorProductor.set(c.productor_id, arr);
     kilosPorProductor.set(c.productor_id, (kilosPorProductor.get(c.productor_id) ?? 0) + (c.kilos ?? 0));
+
+    const porEspecie = kilosPorEspeciePorProductor.get(c.productor_id) ?? {};
+    porEspecie[c.especie] = (porEspecie[c.especie] ?? 0) + (c.kilos ?? 0);
+    kilosPorEspeciePorProductor.set(c.productor_id, porEspecie);
   }
 
   const ultimoPorProductor = ultimoPorProductorMap(seguimientos);
@@ -91,6 +99,7 @@ export function generarPropuestaSugerencias(
       email: p.dueno_email,
       kilos: kilosPorProductor.get(p.id) ?? 0,
       especies: especiesPorProductor.get(p.id) ?? [],
+      kilosPorEspecie: kilosPorEspeciePorProductor.get(p.id) ?? {},
       motivo,
       ultimaFecha: ultimo?.fecha ?? null,
       proximoSeguimientoVencido: proximoVencido,
@@ -100,8 +109,16 @@ export function generarPropuestaSugerencias(
 
   candidatos.sort((a, b) => ORDEN_MOTIVO[a.motivo] - ORDEN_MOTIVO[b.motivo] || b.kilos - a.kilos);
 
+  const kilosTotalesPorEspecie = new Map<string, number>();
+  for (const c of candidatos) {
+    for (const [especie, kilos] of Object.entries(c.kilosPorEspecie)) {
+      kilosTotalesPorEspecie.set(especie, (kilosTotalesPorEspecie.get(especie) ?? 0) + kilos);
+    }
+  }
+  const especiesDisponibles = [...kilosTotalesPorEspecie.entries()].sort((a, b) => b[1] - a[1]).map(([especie]) => especie);
+
   if (agronomos.length === 0) {
-    return { porAgronomo: [], sinAgronomosDisponibles: candidatos };
+    return { porAgronomo: [], sinAgronomosDisponibles: candidatos, especiesDisponibles };
   }
 
   // Cobertura actual por comuna: qué agrónomo ya atiende más productores en cada comuna,
@@ -162,5 +179,5 @@ export function generarPropuestaSugerencias(
     };
   });
 
-  return { porAgronomo, sinAgronomosDisponibles: [] };
+  return { porAgronomo, sinAgronomosDisponibles: [], especiesDisponibles };
 }
