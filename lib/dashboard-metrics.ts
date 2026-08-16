@@ -53,7 +53,7 @@ export type DashboardMetrics = {
 };
 
 const ETAPAS_CONTACTADO: EstadoSeguimiento[] = ["pendiente", "contactado", "sin_respuesta"];
-const ESTADOS_FINALES: EstadoSeguimiento[] = ["cerrado_ganado", "cerrado_perdido"];
+export const ESTADOS_FINALES: EstadoSeguimiento[] = ["cerrado_ganado", "cerrado_perdido"];
 
 function pct(total: number, base: number): number {
   return base > 0 ? Math.round((total / base) * 1000) / 10 : 0;
