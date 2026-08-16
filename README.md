@@ -1,18 +1,11 @@
-# Conteos Dardos y Carozos
+# CRM Captación de Productores
 
-Plataforma web para registrar y reportar conteos de estructuras vegetales (ramas, dardos, carozos, brotes, flores) por parcela, árbol y rama, y CRM de captación de productores para el equipo de agrónomos.
+CRM para el equipo de agrónomos: seguimiento de contactos, dashboard ejecutivo, tablero tipo Kanban y calendario de captación de productores de fruta.
 
 Stack: Next.js (App Router) + Neon Postgres (`@neondatabase/serverless`) + Tailwind, pensado para desplegar en Vercel.
 
 ## Modelo de datos
 
-Conteo de estructuras:
-- **parcelas**: unidades de terreno/cultivo.
-- **arboles**: pertenecen a una parcela.
-- **ramas**: pertenecen a un árbol.
-- **conteos**: registros de cantidad por tipo de estructura (`dardo`, `carozo`, `brote`, `flor`, `vegetativo`) asociados a una rama, con fecha y notas.
-
-CRM de captación (`/productores`, `/productores/zonas`, `/agronomos`):
 - **agronomos**: equipo comercial/agronómico que hace la captación.
 - **productores**: razón social, dueño/administrador y sus contactos, ubicación (región/provincia/comuna/dirección, y coordenadas `latitud`/`longitud` para el mapa), código SAG y agrónomo asignado.
 - **productor_cultivos**: especie, variedad y kilos por productor.
@@ -22,10 +15,9 @@ CRM de captación (`/productores`, `/productores/zonas`, `/agronomos`):
 
 1. Crea una base de datos en [Neon](https://neon.tech) y copia la cadena de conexión.
 2. Copia `.env.example` a `.env.local` y completa `DATABASE_URL`.
-3. Ejecuta los esquemas SQL en tu base de datos:
+3. Ejecuta el esquema SQL en tu base de datos:
 
    ```bash
-   psql "$DATABASE_URL" -f sql/schema.sql
    psql "$DATABASE_URL" -f sql/schema_crm.sql
    ```
 
@@ -50,7 +42,7 @@ CRM de captación (`/productores`, `/productores/zonas`, `/agronomos`):
    npm run dev
    ```
 
-7. Abre [http://localhost:3000](http://localhost:3000). El listado de productores está en `/productores`, el mapa por zonas en `/productores/zonas` y el equipo de agrónomos en `/agronomos`.
+7. Abre [http://localhost:3000](http://localhost:3000) (redirige a `/dashboard`).
 
 ## Despliegue en Vercel
 
@@ -61,16 +53,10 @@ CRM de captación (`/productores`, `/productores/zonas`, `/agronomos`):
 
 ## Flujo de uso
 
-1. Crea una **parcela**.
-2. Agrega **árboles** a la parcela.
-3. Agrega **ramas** a cada árbol.
-4. Registra **conteos** de dardos, carozos u otras estructuras por rama.
-5. Consulta los totales agregados en la página de **Resumen**.
-
-### CRM de captación
-
 1. Registra al equipo en **Agrónomos** (`/agronomos`).
 2. En **Productores** (`/productores`) revisa la base cargada desde Excel, filtra por comuna, especie, estado de contacto o agrónomo asignado, y asigna cada productor a un agrónomo.
 3. Entra al detalle de un productor para ver sus datos de contacto, cultivos/kilos y **registrar cada llamada, mail o visita** con estado y notas.
-4. El dashboard en `/productores` muestra kilos totales, productores contactados/pendientes y seguimientos por vencer.
-5. En **Zonas** (`/productores/zonas`) el equipo ve un mapa con la ubicación de cada productor geocodificado y la lista agrupada por comuna, para planificar rutas de visita.
+4. En **Sugerencias** (`/sugerencias`) revisa la propuesta de contactos priorizada por seguimientos vencidos, leads sin próxima fecha y productores nunca contactados, filtrable por especie.
+5. En **Tablero** (`/pipeline`) gestiona el pipeline de captación arrastrando productores entre etapas, estilo Kanban.
+6. En **Calendario** (`/calendario`) sigue la trazabilidad día a día de seguimientos vencidos, programados y realizados.
+7. En **Dashboard** (`/dashboard`) el equipo ve KPIs, contactos por canal/especie, embudo de conversión, ranking de agrónomos y tendencia de captación.

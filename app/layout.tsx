@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Conteos Dardos y Carozos",
-  description: "Plataforma para registrar conteos de estructuras vegetales: ramas, dardos y carozos",
+  title: "CRM Captación de Productores",
+  description: "CRM para el equipo de agrónomos: seguimiento, dashboard, tablero y calendario de captación de productores",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-neutral-50 text-neutral-900">
         <header className="bg-gradient-to-r from-emerald-800 to-emerald-700 shadow-sm">
           <div className="mx-auto max-w-6xl px-4 py-3 flex items-center gap-6">
-            <span className="font-semibold text-white shrink-0">🌿 Conteos Dardos y Carozos</span>
+            <span className="font-semibold text-white shrink-0">🍒 CRM Captación</span>
             <NavLinks />
           </div>
         </header>
