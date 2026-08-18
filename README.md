@@ -21,7 +21,7 @@ Stack: Next.js (App Router) + Neon Postgres (`@neondatabase/serverless`) + Tailw
    psql "$DATABASE_URL" -f sql/schema_crm.sql
    ```
 
-4. (Opcional) Importa la base de productores exportada desde Excel (`data/productores.json`, 241 productores):
+4. (Opcional) Importa la base de productores exportada desde Excel (`data/productores.json`, 792 productores):
 
    ```bash
    node --env-file=.env.local scripts/seed-crm.mjs
@@ -35,21 +35,36 @@ Stack: Next.js (App Router) + Neon Postgres (`@neondatabase/serverless`) + Tailw
 
    Es seguro volver a correrlo: solo geocodifica los productores que aún no tengan coordenadas.
 
-6. Instala dependencias y levanta el servidor de desarrollo:
+6. (Opcional, recomendado) Define `CRM_ACCESS_PASSWORD` en `.env.local` para pedir una clave única
+   del equipo antes de entrar a cualquier página (ver [Acceso con clave](#acceso-con-clave)).
+
+7. Instala dependencias y levanta el servidor de desarrollo:
 
    ```bash
    npm install
    npm run dev
    ```
 
-7. Abre [http://localhost:3000](http://localhost:3000) (redirige a `/dashboard`).
+8. Abre [http://localhost:3000](http://localhost:3000) (redirige a `/dashboard`).
+
+## Acceso con clave
+
+La plataforma se puede proteger con una sola clave compartida por todo el equipo (sin cuentas
+individuales). Al definir la variable de entorno `CRM_ACCESS_PASSWORD`, cualquier visita queda
+redirigida a `/login` hasta ingresar esa clave; luego se guarda una cookie de sesión (30 días) y
+aparece un botón "Cerrar sesión" en el header. Si `CRM_ACCESS_PASSWORD` no está definida, la app
+queda sin clave (comportamiento anterior).
+
+Para activarla en producción: agrega `CRM_ACCESS_PASSWORD` en Vercel → tu proyecto → Settings →
+Environment Variables, y vuelve a desplegar.
 
 ## Despliegue en Vercel
 
 1. Importa el repositorio en Vercel.
 2. Define la variable de entorno `DATABASE_URL` con la cadena de conexión de Neon.
 3. (Opcional, para el mapa) Define `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` con tu API key de Google Maps.
-4. Despliega. Vercel detecta automáticamente el proyecto Next.js.
+4. (Opcional) Define `CRM_ACCESS_PASSWORD` para pedir clave de acceso (ver arriba).
+5. Despliega. Vercel detecta automáticamente el proyecto Next.js.
 
 ## Flujo de uso
 
