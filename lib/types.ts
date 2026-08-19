@@ -116,3 +116,16 @@ export type Seguimiento = {
   notas: string | null;
   created_at: string;
 };
+
+export type ProductorZona = {
+  id: number;
+  razon_social: string;
+  direccion: string | null;
+  region: string;
+  provincia: string;
+  comuna: string;
+  dueno_telefono: string | null;
+  latitud: number | null;
+  longitud: number | null;
+  especies: string[];
+};
